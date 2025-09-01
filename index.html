@@ -19,84 +19,27 @@
   <link rel="stylesheet" href="CSS/profilepic2.css">
   <link rel="icon" href="IEEE-Logo.svg" type="image/icon type">
   <title>IEEE</title>
-   <!-- FIX: Added CSS to prevent scrolling during loader -->
-   <style>
-    /* Prevent scrolling while loader is active */
-    body.loading {
-      overflow: hidden !important;
-      height: 100vh !important;
-    }
-    
-    /* Ensure loader stays on top */
-    #loaderWrapper {
-      position: fixed !important;
-      top: 50% !important;
-      left: 50% !important;
-      transform: translate(-50%, -50%) !important;
-      z-index: 9999 !important;
-      background-color: rgba(0, 0, 0, 0.8);
-      width: 100vw !important;
-      height: 100vh !important;
-      display: flex !important;
-      justify-content: center !important;
-      align-items: center !important;
-    }
-    
-    /* Ensure main content is completely hidden during loading */
-    #mainContent.loading {
-      display: none !important;
-      visibility: hidden !important;
-    }
-  </style>
 
   
   <script>
 
+setTimeout(function() {
+    // Fade out the loader
+    document.getElementById('loaderWrapper').style.opacity = '0';
+
+    // After the fade-out animation completes, hide the loader and show the main content
     setTimeout(function() {
-      // Fade out the loader
-      document.getElementById('loaderWrapper').style.opacity = '0';
-      document.getElementById('loaderWrapper').style.transition = 'opacity 1s ease-out';
-  
-      // After the fade-out animation completes, hide the loader and show the main content
-      setTimeout(function() {
-        // FIX: Ensure we're at the top before showing content
-        window.scrollTo(0, 0);
-        document.documentElement.scrollTop = 0;
-        document.body.scrollTop = 0;
-        
-        // Remove loading class from body to restore scrolling
-        document.body.classList.remove('loading');
-        
-        // Hide the loader
-        document.getElementById('loaderWrapper').style.display = 'none';
-  
-        // Show and fade in the main content
-        const mainContent = document.getElementById('mainContent');
-        mainContent.classList.remove('loading');
-        mainContent.style.display = 'block';
-        mainContent.style.visibility = 'visible';
-        
-        // Small delay to ensure display change is processed
-        setTimeout(function() {
-          mainContent.style.opacity = '1';
-          // Final scroll to top to be absolutely sure
-          window.scrollTo(0, 0);
-        }, 50);
-        
-      }, 1000); // Match transition duration
-    }, 2000);
+      // Hide the loader
+      document.getElementById('loaderWrapper').style.display = 'none';
+
+      // Show and fade in the main content
+      document.getElementById('mainContent').style.display = 'block';
+      document.getElementById('mainContent').style.opacity = '1';
+    }, 2000); // Match this duration with the CSS transition time #1000,3000 default
+  }, 2000);
 
 document.addEventListener("DOMContentLoaded", function() {
-  // FIX: Add loading class to prevent scrolling during load
-  document.body.classList.add('loading');
-  document.getElementById('mainContent').classList.add('loading');
-  
-  // Force scroll to top on page load
-  window.scrollTo(0,0);
-  document.documentElement.scrollTop = 0;
-  document.body.scrollTop = 0;
-  
-  // Typewriter effect and IntersectionObserver initialization
+    // Typewriter effect and IntersectionObserver initialization
     const sections = document.querySelectorAll('.animate-on-scroll');
     const options = {
         root: null,
@@ -270,10 +213,13 @@ document.addEventListener("DOMContentLoaded", function() {
                       <a class="nav-link active" aria-current="page" href="#home">Home</a>
                   </li>
                   <li class="nav-item pe-5">
+                      <a class="nav-link" href="#achievements">Achievements</a>
+                  </li>
+                  <li class="nav-item pe-5">
                       <a class="nav-link" href="#events">Events</a>
                   </li>
                   <li class="nav-item pe-5">
-                    <a class="nav-link" href="#about">About</a>
+                      <a class="nav-link" href="#about">About</a>
                   </li>
                   <li class="nav-item pe-5">
                       <a class="nav-link" href="#membership">Membership</a>
@@ -296,76 +242,67 @@ document.addEventListener("DOMContentLoaded", function() {
       </video>
     </div>
     
-    <div class="content">
-        <h1 class="display-3 playfair-display-hd">Leading the Future of Technology through Global Collaboration and Innovation.</h1>
+      <div class="content">
+          <h1 class="display-3 playfair-display-hd">Leading the Future of Technology through Global Collaboration and Innovation.</h1>
         <a href="https://www.ieee.org/membership/join/index.html"><button class="btn btn-primary mt-4" >Membership</button> </a>
     </div>
   </div>
-  
-  <div class="container-fluid mt-5 animate-on-scroll" id="hm">
+    <!-- Showcase Section -->
+  <div class="container-fluid mt-1 animate-on-scroll" id="hm">
     <div id="carouselDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active">
           <img src="images/carousel/img1.jpeg" class="d-block w-100" alt="Slide 1">
           <div class="carousel-caption d-none d-sm-block">
-            <h5>MAF</h5>
-            <p>At MAF, we turn challenges into smiles, finding joy and pride in every achievement.            </p>
+            <p>MAF</p>
           </div>
         </div>
         <div class="carousel-item">
           <img src="images/carousel/img2.jpeg" class="d-block w-100" alt="Slide 2">
           <div class="carousel-caption d-none d-sm-block">
-            <h5>Seminar on Gas Dynamics</h5>
-            <p>Explore the principles and applications of Gas Dynamics in this seminar, uncovering its critical role in modern aerospace engineering.</p>
+            <p>Seminar on Gas Dynamics</p>
           </div>
         </div>
         <div class="carousel-item">
           <img src="images/carousel/img3.jpeg" class="d-block w-100" alt="Slide 3">
           <div class="carousel-caption d-none d-sm-block">
-            <h5>Astrophysics workshop</h5>
-            <p>The Astrophysics workshop at Mindkraft, Karunya, for a week-long journey into the mysteries of the universe and cutting-edge space science.</p>
+            <p>Astrophysics workshop</p>
           </div>
         </div>
         <div class="carousel-item">
           <img src="images/carousel/CryogenicPropulsion.jpeg" class="d-block w-100" alt="Slide 3">
           <div class="carousel-caption d-none d-sm-block">
-            <h5>Cryogenics workshop</h5>
-            <p>A cryogenics workshop led by Dr. Aldin Justin, featuring hands-on experience, as part of IEEE Week.</p>
+            <p>Cryogenics workshop</p>
           </div>
         </div>
         <div class="carousel-item">
           <img src="images/carousel/HandOnCryo.jpeg" class="d-block w-100" alt="Slide 3">
           <div class="carousel-caption d-none d-sm-block">
-            <h5>Cryogenics workshop</h5>
-            <p>A cryogenics workshop led by Dr. Aldin Justin, featuring hands-on experience, as part of IEEE Week.</p>
+            <p>Cryogenics workshop</p>
           </div>
         </div>
         <div class="carousel-item">
           <img src="images/carousel/IEEEMembersOnIEEEdayInaugration.jpeg" class="d-block w-100" alt="Slide 3">
           <div class="carousel-caption d-none d-sm-block">
-            <h5>IEEE Week Inaugration</h5>
-            <p>The IEEE Week inauguration, graced by our Dean of E&T, Dr. D. Nirmal, Technical Coordinator, Dr. Jenkin Winston, and Director, Dr. Madhu Ganesh.</p>
+            <p>IEEE Week Inaugration</p>
           </div>
         </div>
         <div class="carousel-item">
           <img src="images/carousel/MegaHackathon.jpeg" class="d-block w-100" alt="Slide 3">
           <div class="carousel-caption d-none d-sm-block">
-            <h5>MegaHackathon</h5>
-            <p>The Mega Hackathon during IEEE Week showcased innovative solutions and teamwork, fostering creativity and technical excellence among participants.</p>
+            <p>MegaHackathon</p>
           </div>
         </div>
         <div class="carousel-item">
           <img src="images/carousel/QuantumComputers.jpeg" class="d-block w-100" alt="Slide 3">
           <div class="carousel-caption d-none d-sm-block">
-            <h5>Quantum Computers workshop</h5>
-            <p>The Quantum Computing session during IEEE Week explored the future of computation, providing insights into quantum technology and its groundbreaking applications.</p>
+            <p>Quantum Computers workshop</p>
           </div>
         </div>
         <div class="carousel-item">
           <img src="images/carousel/Students.jpeg" class="d-block w-100" alt="Slide 3">
           <div class="carousel-caption d-none d-sm-block">
-            <h5>IEEE workshop</h5>
-            <p>Group photo of students actively participating in the IEEE workshop, capturing moments of learning, collaboration, and hands-on experience.</p>
+            <p>IEEE workshop</p>
           </div>
         </div>
 
@@ -380,268 +317,297 @@ document.addEventListener("DOMContentLoaded", function() {
       </a>
     </div>
     
-    <div class="container-fluid m-5 animate-on-scroll">
+    <div class="container-fluid m-3 m-md-5 animate-on-scroll">
       <div class="row justify-content-center">
-        <div class="col-md-8 text-center" style="color: aliceblue;">
+        <div class="col-12 col-md-8 text-center" style="color: aliceblue;">
           <h3 class="playfair-display-hd intro-heading" style="color: aliceblue; margin-bottom: 2rem;"></h3>
-          <p class="playfair-display-hd intro-paragraph animate-on-scroll px-4 py-3" style="text-align: justify; font-size: 1.1rem; line-height: 1.8; background-color: #0c1b3a; border-radius: 10px; color: aliceblue;">
+          <p class="playfair-display-hd intro-paragraph animate-on-scroll px-2 px-md-4 py-3" style="text-align: justify; font-size: 1.1rem; line-height: 1.8; background-color: #0c1b3a; border-radius: 10px; color: aliceblue; word-wrap: break-word; overflow-wrap: break-word;">
             At IEEE, we are committed to advancing technology for the benefit of humanity. With over 400,000 members worldwide, IEEE fosters innovation and excellence through its extensive network of engineers, scientists, and technology professionals. Our mission is to inspire, educate, and connect the global community through cutting-edge research, professional development, and thought leadership in engineering, computing, and technology. Whether you're looking to stay updated on the latest technological advancements, collaborate with like-minded professionals, or contribute to groundbreaking research, IEEE provides the resources, opportunities, and community to help you achieve your goals. Join us in shaping the future of technology and making a lasting impact on the world.
           </p>
         </div>
       </div>
-      
-      <!-- Important Dates Box - Commented out for future use -->
-      <!--
-      <div class="row justify-content-center">
-        <div class="col-md-6">
-          <div class="d-flex imp-date-box flex-column box mx-auto" style="width: 28em; height: 23em; border-radius: 7%; background-color: #0b2545;">
-                <div class="imp-header text-center p-3 text-light h4">
-                    Important Dates
-                </div>
-                <div class="row">
-                    <div class="imp-dates text-light col-6 p-2">
-                      <h5 class="p-2">Ongoing</h5>
-                        <ul>
-                          
-                        </ul>
-                    </div>
-                    <div class="imp-dates text-light col-6 p-2">
-                      <h5 class="p-2">Completed</h5>
-                        <ul>
-                          <li>IEEE week </li>
-                          <li>Treasure Hunt</li>
-                          <li>Robotics Workshop</li>
-                          <li>Soccer Ball</li>
-                          <li>Cyber Security</li>
-                          <li>ECE (IoT and Smart Systems)</li>
-                          <li>Clash of Clans</li>
-                          <li>Knights of the Board Chess Faceoff</li>
-                          <li>Everyday AI Transforming Daily Life</li>
-                          <li>Fold Fest 2024: The Art of Origami</li>
-                          <li>Introduction to Business Startup Ideas Panel</li>
-                          <li>Sports Activities</li>
-                          <li>Photo Contest</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            
-        </div>
-      </div>
-      -->
     </div>
   </div>
-  
-  <!-- Events Section -->
-  <div class="carousel-e animate-on-scroll" id="events">
-      <!-- list item -->
-      <div class="list">
-          <div class="item">
-              <img src="" id="img1">
-              <div class="content">
-                  <div class="author">Aerospace</div>
-                  <div class="title">Rocket Stages Unvailed:</div>
-                  <div class="topic">The Journey to Space</div>
-                  <div class="des">
-                      Date : 11/09/2024 <br>
-                      Time : 2:00 PM - 5:00 PM <br>
-                      Venue : Elohim Auditorium
-                  </div>
-                  <div class="buttons">
-                      <a href=""><button>Register</button></a>
-                  </div>
+  <!-- Achievements Section -->
+<section id="achievements" class="achievements-section animate-on-scroll py-3 px-3 mt-0">
+  <div class="container">
+    <h2 class="text-center mb-5 text-light">Our Achievements</h2>
+    <div class="row align-items-center">
+      <!-- Left Side - Sliding Images -->
+      <div class="col-md-6">
+        <div class="achievements-slider">
+          <div class="swiper achievements-swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <img src="images\about\imageeee.jpg" alt="IEEE Achievement 1" class="achievement-img">
               </div>
+            </div>
           </div>
-          <div class="item">
-              <img src="images/events/ai.jpg">
-              <div class="content">
-                  <div class="author">IEEE</div>
-                  <div class="title">AI</div>
-                  <div class="topic">AI as Humans</div>
-                  <div class="des">
-                      <!-- lorem 50 -->
-                      Lorem  dolor, sit amet consectetur adipisicing elit. Ut sequi, rem magnam nesciunt minima placeat, itaque eum neque officiis unde, eaque optio ratione aliquid assumenda facere ab et quasi ducimus aut doloribus non numquam. Explicabo, laboriosam nisi reprehenderit tempora at laborum natus unde. Ut, exercitationem eum aperiam illo illum laudantium?
-                  </div>
-                  <div class="buttons">
-                      <a href=""><button><del>Register</del></button></a>
-                  </div>
-              </div>
-          </div>
-          <div class="item">
-              <img src="images/events/Aircraft Stability.jpg">
-              <div class="content">
-                  <div class="author">IEEE</div>
-                  <div class="title">Aircraft Stability</div>
-                  <div class="topic">Airbus and its Stability</div>
-                  <div class="des">
-                      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut sequi, rem magnam nesciunt minima placeat, itaque eum neque officiis unde, eaque optio ratione aliquid assumenda facere ab et quasi ducimus aut doloribus non numquam. Explicabo, laboriosam nisi reprehenderit tempora at laborum natus unde. Ut, exercitationem eum aperiam illo illum laudantium?
-                  </div>
-                  <div class="buttons">
-                    <a href=""><button><del>Register</del></button></a>
-                  </div>
-              </div>
-          </div>
-          <div class="item">
-              <img src="images/events/uav.jpg">
-              <div class="content">
-                  <div class="author">IEEE</div>
-                  <div class="title">UAV</div>
-                  <div class="topic">Flying higher</div>
-                  <div class="des">
-                      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut sequi, rem magnam nesciunt minima placeat, itaque eum neque officiis unde, eaque optio ratione aliquid assumenda facere ab et quasi ducimus aut doloribus non numquam. Explicabo, laboriosam nisi reprehenderit tempora at laborum natus unde. Ut, exercitationem eum aperiam illo illum laudantium?
-                  </div>
-                  <div class="buttons">
-                    <a href=""><button><del>Register</del></button></a>
-                  </div>
-              </div>
-          </div>
-          <div class="item">
-              <img src="images/events/webdev.jpg">
-              <div class="content">
-                  <div class="author">IEEE</div>
-                  <div class="title">WebDev</div>
-                  <div class="topic">Webpages made easy</div>
-                  <div class="des">
-                      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut sequi, rem magnam nesciunt minima placeat, itaque eum neque officiis unde, eaque optio ratione aliquid assumenda facere ab et quasi ducimus aut doloribus non numquam. Explicabo, laboriosam nisi reprehenderit tempora at laborum natus unde. Ut, exercitationem eum aperiam illo illum laudantium?
-                  </div>
-                  <div class="buttons">
-                    <a href=""><button><del>Register</del></button></a>
-                  </div>
-              </div>
-          </div>
+        </div>
       </div>
-      <!-- list thumnail -->
-      <div class="thumbnail">
-          <div class="item">
-              <img src="" id="img1">
-              <div class="content">
-                  <div class="title">
-                      Azure AI
-                  </div>
-                  <div class="description">
-                      Boosting Skills
-                  </div>
-              </div>
-          </div>
-          <div class="item">
-              <img src="images/events/thumbnails/ai.jpg">
-              <div class="content">
-                  <div class="title">
-                      Azure AI
-                  </div>
-                  <div class="description">
-                      Boosting Skills
-                  </div>
-              </div>
-          </div>
-          <div class="item">
-              <img src="images/events/thumbnails/Aircraft Stability.jpg">
-              <div class="content">
-                  <div class="title">
-                      Name Slider
-                  </div>
-                  <div class="description">
-                      Description
-                  </div>
-              </div>
-          </div>
-          <div class="item">
-              <img src="images/events/thumbnails/uav.jpg">
-              <div class="content">
-                  <div class="title">
-                      Name Slider
-                  </div>
-                  <div class="description">
-                      Description
-                  </div>
-              </div>
-          </div>
-          <div class="item">
-              <img src="images/events/thumbnails/webdev.jpg">
-              <div class="content">
-                  <div class="title">
-                      Name Slider
-                  </div>
-                  <div class="description">
-                      Description
-                  </div>
-              </div>
-          </div>
+      
+      <!-- Right Side - Static Description -->
+      <div class="col-md-6">
+        <div class="achievements-content">
+          <h3 class="text-light mb-4 text-start">Celebrating Success Together</h3>
+          <p class="text-light text-start" style="line-height: 1.6; text-align: justify;">Our IEEE Student Branch has been recognized with the IEEE India Council Award for Outstanding Student Branch of the Year 2024, presented at IIT Kharagpur. This prestigious honor reflects our dedication, innovation, and collaborative spirit. From organizing impactful events to driving excellence in technology, we continue to inspire and achieve new milestones as a community.</p>
+        </div>
       </div>
-      <!-- next prev -->
-
-      <div class="arrows">
-          <button id="prev"><</button>
-          <button id="next">></button>
-      </div>
-      <!-- time running -->
-      <div class="time"></div>
+    </div>
   </div>
-  <script src="app.js"></script>
-  
-   <!-- <div class="swiper-container events-slider mt-4 animate-on-scroll" style="position: relative;  height: 30vh;">
-      <div class="swiper-wrapper">
-        <!-- Individual Slides - Commented out for future use -->
-        <!--
-        <!-- First Slide 
-        <div class="swiper-slide" style="position: relative; display: flex; justify-content: center; align-items: center; margin-right: 55px;">
-          <img src="images/events-update/Ouiz.png" alt="Image 1" style="width: 100%; height: 100%; object-fit: cover;" />
-          <div class="text-overlay" style="position: absolute; bottom: 0; width: 100%; background-color: rgba(0, 0, 0, 0.5); color: white; text-align: center; padding: 5px 10px;">
-            <h3 style="margin: 0; font-size: 1.2rem;color: #ffffff;"><a href="form.php"><button class="btn btn-success"><del>Critical Thinking Puzzles </del></button></a></h3>
-            <p style="margin: 0; font-size: 0.9rem;">Date : 03/10/2024 <br> Time : <time>9:30 a.m. - 11:30 a.m.</time> </p>
+</section>
+
+<!-- Events Section -->
+<!-- Events Section -->
+<div class="carousel-e animate-on-scroll mt-3" id="events">
+  <!-- list item -->
+  <div class="list">
+      <!-- 1. Electro Jenga -->
+      <div class="item">
+          <img src="images/events/electro jenga.png">
+          <div class="content">
+              <div class="author">IEEE</div>
+              <div class="title">Electro Jenga</div>
+              <div class="topic">Stack. Crack.</div>
+              <div class="des">
+                  Electro Jenga is a tech-twist on the classic game! Pull blocks, crack questions, survive the tower, and claim victory.
+              </div>
+              <div class="buttons">
+                <a href="https://forms.gle/5xSQ4ef2AZ1yfdLT6" target="_blank"><button>Register</button></a>
+              </div>
           </div>
-        </div>
-        <!-- Second Slide 
-        <div class="swiper-slide" style="position: relative; display: flex; justify-content: center; align-items: center; margin-right: 55px;">
-          <img src="images/events-update/Aerospace_rockets_quick-events.jpg" alt="Image 2" style="width: 100%; height: 100%; object-fit: cover;" />
-          <div class="text-overlay" style="position: absolute; bottom: 0; width: 100%; background-color: rgba(0, 0, 0, 0.5); color: white; text-align: center; padding: 5px 10px;">
-            <h3 style="margin: 0; font-size: 1.2rem;color: #ffffff;"><a href="form.php"><button class="btn btn-success"><del>Cryogenics</del></button></a></h3>
-            <p style="margin: 0; font-size: 0.9rem;">Date : 11/9/2024 <br> Time : <time>2:00 P.M.</time> </p>
-          </div>
-        </div>
-        <!-- Third Slide 
-        <div class="swiper-slide" style="position: relative; display: flex; justify-content: center; align-items: center; margin-right: 55px;">
-          <img src="images/events-update/ bussiness.jpeg" alt="Image 3" style="width: 100%; height: 100%; object-fit: cover;" />
-          <div class="text-overlay" style="position: absolute; bottom: 0; width: 100%; background-color: rgba(0, 0, 0, 0.5); color: white; text-align: center; padding: 5px 10px;">
-            <h3 style="margin: 0; font-size: 1.2rem;color: #ffffff;"><a href="form.php"><button class="btn btn-success"><del>Introduction to Bussiness Startup Ideas Panel</del></button></a></h3>
-            <p style="margin: 0; font-size: 0.9rem;">Date : 01/10/2024 <br> Time : <time>11:30 a.m. - 12:45 a.m. </time> </p>
-          </div>
-        </div>
-        <!-- Fourth Slide 
-        <div class="swiper-slide" style="position: relative; display: flex; justify-content: center; align-items: center; margin-right: 55px;">
-          <img src="images/events-update/Clash of clans.jpg" alt="Image 4" style="width: 100%; height: 100%; object-fit: cover;" />
-          <div class="text-overlay" style="position: absolute; bottom: 0; width: 100%; background-color: rgba(0, 0, 0, 0.5); color: white; text-align: center; padding: 5px 10px;">
-            <h3 style="margin: 0; font-size: 1.2rem;color: #ffffff;"><a href="form.php"><button class="btn btn-success"><del>Clash of Clans</del></button></a></h3>
-            <p style="margin: 0; font-size: 0.9rem;">Date : 01/10/2024 <br> Time : <time>2:00 a.m. - 2:30 a.m. </time> </p>
-          </div>
-        </div>
-        <!-- Fifth Slide 
-        <div class="swiper-slide" style="position: relative; display: flex; justify-content: center; align-items: center; margin-right: 55px;">
-          <img src="images/events-update/chess.jpg" alt="Image 5" style="width: 100%; height: 100%; object-fit: cover;" />
-          <div class="text-overlay" style="position: absolute; bottom: 0; width: 100%; background-color: rgba(0, 0, 0, 0.5); color: white; text-align: center; padding: 5px 10px;">
-            <h3 style="margin: 0; font-size: 1.2rem;color: #ffffff;"><a href="form.php"><button class="btn btn-success"><del>Chess</del></button></a></h3>
-            <p style="margin: 0; font-size: 0.9rem;">Date : 01/10/2024 <br> Time : <time>2:45 a.m. - 3:15 a.m. </time> </p>
-          </div>
-        </div>
-        <!-- Sixth Slide 
-        <div class="swiper-slide" style="position: relative; display: flex; justify-content: center; align-items: center; margin-right: 55px;">
-          <img src="images/events-update/AI.jpg" alt="Image 6" style="width: 100%; height: 100%; object-fit: cover;" />
-          <div class="text-overlay" style="position: absolute; bottom: 0; width: 100%; background-color: rgba(0, 0, 0, 0.5); color: white; text-align: center; padding: 5px 10px;">
-            <h3 style="margin: 0; font-size: 1.2rem;color: #ffffff;"><a href="form.php"><button class="btn btn-success"><del>AI of Everyday</del></button></a></h3>
-            <p style="margin: 0; font-size: 0.9rem;">Date : 01/10/2024 <br> Time : <time>3:30 a.m. - 4:45 a.m. </time></p>
-          </div>
-        </div>
-        <!-- Seventh Slide 
-        <div class="swiper-slide" style="position: relative; display: flex; justify-content: center; align-items: center; margin-right: 55px;">
-          <img src="images/events-update/origami.jpg" alt="Image 7" style="width: 100%; height: 100%; object-fit: cover;" />
-          <div class="text-overlay" style="position: absolute; bottom: 0; width: 100%; background-color: rgba(0, 0, 0, 0.5); color: white; text-align: center; padding: 5px 10px;">
-            <h3 style="margin: 0; font-size: 1.2rem;color: #ffffff;"><a href="form.php"><button class="btn btn-success"><del>Fold Fest 2024</del></button></a></h3>
-            <p style="margin: 0; font-size: 0.9rem;">Date : 03/10/2024 <br> Time : <time>3:30 a.m. - 4:45 a.m. </time></p>
-          </div>
-        </div>
       </div>
-    </div>-->
-<script>
+      
+      <!-- 2. Solid Works (Model Mania) -->
+      <div class="item">
+          <img src="images/events/solidworks.png">
+          <div class="content">
+              <div class="author">IEEE</div>
+              <div class="title">Model Mania</div>
+              <div class="topic">CAD it!</div>
+              <div class="des">
+                Put your design skills to the test in an exciting 3D modeling challenge using SolidWorks. Compete, innovate, and showcase your engineering creativity!
+              </div>
+              <div class="buttons">
+                <a href="https://forms.gle/5xSQ4ef2AZ1yfdLT6" target="_blank"><button>Register</button></a>
+              </div>
+          </div>
+      </div>
+      
+      <!-- 3. Mind Maze -->
+      <div class="item">
+        <img src="images/events/mind.png">
+        <div class="content">
+            <div class="author">IEEE</div>
+            <div class="title">Mind Maze</div>
+            <div class="topic">A thrilling challenge</div>
+            <div class="des">
+              Compete through quizzes, rope mazes, QR riddles, and blindfolded challenges to advance through each round. 
+            </div>
+            <div class="buttons">
+              <a href="https://forms.gle/5xSQ4ef2AZ1yfdLT6" target="_blank"><button>Register</button></a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 4. Tech Treasure Hunt -->
+    <div class="item">
+        <img src="images/events/tech.png">
+        <div class="content">
+            <div class="author">IEEE</div>
+            <div class="title">Tech treasure hunt</div>
+            <div class="topic">Tech Adventure</div>
+            <div class="des">
+              Crack the code and unlock new destinations 
+            </div>
+            <div class="buttons">
+              <a href="https://forms.gle/5xSQ4ef2AZ1yfdLT6" target="_blank"><button>Register</button></a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 5. One Day Trader -->
+    <div class="item">
+        <img src="images/events/trade.png">
+        <div class="content">
+            <div class="author">IEEE</div>
+            <div class="title">One-Day Trader</div>
+            <div class="topic">Bid, Trade, Win</div>
+            <div class="des">
+              An auction-style stock market game where teams use virtual money and real company data to buy, sell, and grow their wealth
+            </div>
+            <div class="buttons">
+              <a href="https://forms.gle/5xSQ4ef2AZ1yfdLT6" target="_blank"><button>Register</button></a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 6. AD-Venture -->
+    <div class="item">
+        <img src="images\events\AD.png">
+        <div class="content">
+            <div class="author"></div>
+            <div class="title">AD-Venture</div>
+            <div class="topic">Pitch it, win it</div>
+            <div class="des">
+              Pitch your innovative ideas and showcase creativity! Compete to turn concepts into impactful ventures.
+            </div>
+            <div class="buttons">
+              <a href="https://forms.gle/5xSQ4ef2AZ1yfdLT6" target="_blank"><button>Register</button></a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 7. Esports -->
+    <div class="item">
+        <img src="images/events/esports.png">
+        <div class="content">
+            <div class="author">IEEE</div>
+            <div class="title">Esports</div>
+            <div class="topic">Gamers Hub</div>
+            <div class="des">
+              Compete in thrilling digital gaming tournaments! Showcase your skills and experience the excitement of fast-paced esports action.
+            </div>
+            <div class="buttons">
+              <a href="https://forms.gle/5xSQ4ef2AZ1yfdLT6" target="_blank"><button>Register</button></a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 8. Tech Talk -->
+    <div class="item">
+      <img src="images/events/talk.png">
+      <div class="content">
+          <div class="author">IEEE</div>
+          <div class="title">Tech talk</div>
+          <div class="topic">NVIDIA</div>
+          <div class="des">
+            Dive into the latest in AI, graphics, and computing! Explore innovations that are shaping the future of technology.
+          </div>
+          <div class="buttons">
+            <a href="https://forms.gle/5xSQ4ef2AZ1yfdLT6" target="_blank"><button>Register</button></a>
+          </div>
+      </div>
+  </div>
+  </div>
+  
+  <!-- list thumbnail -->
+  <div class="thumbnail">
+      <!-- 1. Electro Jenga -->
+      <div class="item">
+          <img src="images/events/thumbnails/jengga.png">
+          <div class="content">
+              <div class="title">
+                  Electro Jenga
+              </div>
+              <div class="description">
+                  fun+tech
+              </div>
+          </div>
+      </div>
+      
+      <!-- 2. Solid Works -->
+      <div class="item">
+          <img src="images/events/thumbnails/solidworks thumb.png">
+          <div class="content">
+              <div class="title">
+                  CAD
+              </div>
+              <div class="description">
+                  designing
+              </div>
+          </div>
+      </div>
+      
+      <!-- 3. Mind Maze -->
+      <div class="item">
+        <img src="images/events/thumbnails/mind thumb.png">
+        <div class="content">
+            <div class="title">
+                Mind Maze
+            </div>
+            <div class="description">
+                challenge
+            </div>
+        </div>
+    </div>
+    
+    <!-- 4. Tech Treasure Hunt -->
+    <div class="item">
+        <img src="images/events/thumbnails/tech thumb.png">
+        <div class="content">
+            <div class="title">
+                Treasure Hunt
+            </div>
+            <div class="description">
+                tech Adventure
+            </div>
+        </div>
+    </div>
+    
+    <!-- 5. One Day Trader -->
+    <div class="item">
+        <img src="images/events/thumbnails/trade thumb.png">
+        <div class="content">
+            <div class="title">
+                Trader
+            </div>
+            <div class="description">
+                For one day
+            </div>
+        </div>
+    </div>
+    
+    <!-- 6. AD-Venture -->
+    <div class="item">
+        <img src="images\events\thumbnails\AD thumb.png">
+        <div class="content">
+            <div class="title">
+                AD-Venture
+            </div>
+            <div class="description">
+                Pitch it
+            </div>
+        </div>
+    </div>
+    
+    <!-- 7. Esports -->
+    <div class="item">
+        <img src="images/events/thumbnails/e thumb.png">
+        <div class="content">
+            <div class="title">
+                Esports
+            </div>
+            <div class="description">
+                fun
+            </div>
+        </div>
+    </div>
+    
+    <!-- 8. Tech Talk -->
+    <div class="item">
+      <img src="images/events/thumbnails/talk thumb.png">
+      <div class="content">
+          <div class="title">
+              tech talk
+          </div>
+          <div class="description">
+              insights
+          </div>
+      </div>
+  </div>
+  </div>
+  
+  <!-- next prev -->
+  <div class="arrows">
+      <button id="prev"><</button>
+      <button id="next">></button>
+  </div>
+  
+  <!-- time running -->
+  <div class="time"></div>
+</div>  <script src="app.js"></script>
+  <script>
   document.addEventListener('DOMContentLoaded', function() {
       var swiper = new Swiper('.events-slider', {
         slidesPerView: 5, // Display 5 slides at a time
@@ -674,611 +640,509 @@ document.addEventListener("DOMContentLoaded", function() {
           swiper.slideNext();
         });
       }
+
+      // Initialize Achievements Slider
+      var achievementsSwiper = new Swiper('.achievements-swiper', {
+        slidesPerView: 1,
+        spaceBetween: 20,
+        loop: true,
+        autoplay: {
+          delay: 3000,
+          disableOnInteraction: false,
+        },
+        navigation: {
+          nextEl: '.achievements-next',
+          prevEl: '.achievements-prev',
+        },
+        pagination: {
+          el: '.achievements-pagination',
+          clickable: true,
+        },
+        effect: 'fade',
+        fadeEffect: {
+          crossFade: true
+        }
+      });
+    });
+  </script>
+
+  <!-- Society Section JavaScript -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // IEEE Societies data
+      const societies = [
+        { name: "Aerospace and Electronic Systems Society", url: "https://www.ieee-aess.org/" },
+        { name: "Antennas and Propagation Society", url: "https://www.ieeeaps.org/" },
+        { name: "Broadcast Technology Society", url: "https://bts.ieee.org/" },
+        { name: "Circuits and Systems Society", url: "https://www.ieee-cas.org/" },
+        { name: "Communications Society", url: "https://www.comsoc.org/" },
+        { name: "Computer Society", url: "https://www.computer.org/" },
+        { name: "Consumer Technology Society", url: "https://ctsoc.ieee.org/" },
+        { name: "Control Systems Society", url: "https://www.ieeecss.org/" },
+        { name: "Dielectrics and Electrical Insulation Society", url: "https://ieeedeis.org/" },
+        { name: "Education Society", url: "https://www.ieee-edusociety.org/" },
+        { name: "Electromagnetic Compatibility Society", url: "https://www.emcs.org/" },
+        { name: "Electron Devices Society", url: "https://eds.ieee.org/" },
+        { name: "Engineering in Medicine and Biology Society", url: "https://www.embs.org/" },
+        { name: "Geoscience and Remote Sensing Society", url: "https://www.grss-ieee.org/" },
+        { name: "Industrial Electronics Society", url: "https://www.ieee-ies.org/" },
+        { name: "Industry Applications Society", url: "http://ias.ieee.org" },
+        { name: "Information Theory Society", url: "https://www.itsoc.org/" },
+        { name: "Instrumentation and Measurement Society", url: "https://www.ieee-ims.org/" },
+        { name: "Intelligent Transportation Systems Society", url: "https://www.ieee-itss.org" },
+        { name: "Magnetics Society", url: "http://www.ieeemagnetics.org" },
+        { name: "Microwave Theory and Techniques Society", url: "http://www.mtt.org" },
+        { name: "Nuclear and Plasma Sciences Society", url: "https://ieee-npss.org/" },
+        { name: "Oceanic Engineering Society", url: "https://www.ieeeoes.org/" },
+        { name: "Photonics Society", url: "https://www.photonicssociety.org/" },
+        { name: "Power & Energy Society", url: "https://www.ieee-pes.org/" },
+        { name: "Product Safety Engineering Society", url: "http://ewh.ieee.org/soc/pses/" },
+        { name: "Reliability Society", url: "http://rs.ieee.org" },
+        { name: "Robotics and Automation Society", url: "https://www.ieee-ras.org/" },
+        { name: "Signal Processing Society", url: "https://www.signalprocessingsociety.org/" },
+        { name: "Social Implications of Technology Society", url: "http://www.ieeessit.org" },
+        { name: "Solid-State Circuits Society", url: "http://sscs.ieee.org/" },
+        { name: "Systems, Man, and Cybernetics Society", url: "https://www.ieeesmc.org/" },
+        { name: "Technology and Engineering Management Society", url: "https://www.ieee-tems.org/" },
+        { name: "Ultrasonics, Ferroelectrics, and Frequency Control Society", url: "https://www.ieee-uffc.org/" },
+        { name: "Vehicular Technology Society", url: "https://www.vtsociety.org/" },
+      ];
+
+      const societiesList = document.getElementById('societiesList');
+      const searchInput = document.getElementById('societySearch');
+
+      // Function to populate societies list
+      function populateSocieties(societiesToShow = societies) {
+        societiesList.innerHTML = '';
+        societiesToShow.forEach(society => {
+          const societyItem = document.createElement('div');
+          societyItem.className = 'society-item';
+          societyItem.innerHTML = `
+            <h4 class="society-name">${society.name}</h4>
+            <a href="${society.url}" target="_blank" class="society-link">Visit Society <i class="fas fa-external-link-alt"></i></a>
+          `;
+          societiesList.appendChild(societyItem);
+        });
+      }
+
+      // Function to filter societies based on search
+      function filterSocieties(searchTerm) {
+        const filteredSocieties = societies.filter(society =>
+          society.name.toLowerCase().includes(searchTerm.toLowerCase())
+        );
+        populateSocieties(filteredSocieties);
+      }
+
+      // Search functionality
+      searchInput.addEventListener('input', function(e) {
+        const searchTerm = e.target.value.trim();
+        if (searchTerm === '') {
+          populateSocieties();
+        } else {
+          filterSocieties(searchTerm);
+        }
+      });
+
+      // Initialize societies list
+      populateSocieties();
     });
   </script>
 
   
-<section id="about" class="mt-5 animate-on-scroll p-5">
+<section id="about" class="mt-1 animate-on-scroll py-1 px-1">
     <div class="container-fluid">
       <div class="row mb-4 animate-on-scroll">
         <h2 class="text-center about-heading playfair-display-hd"></h2>
-        </div>
-        <div class="row justify-content-center">
-            <div class="col-md-8 text-center">
-              <div class="row justify-content-center">
-                <div class="col-md-6 text-center">
-                  <img src="images/about/About.jpeg" class="img-fluid mb-4" alt="About Image 1" style="height: 23em; border-radius: 20%;">
-                </div>
-                <div class="col-md-6 text-center">
-                  <img src="images/about/ieee about image.jpg" class="img-fluid mb-4" alt="About Image 2" style="height: 23em; border-radius: 20%;">
-                </div>
-              </div>
-              
-              <div class="text-start">
-                <p class="mb-3" style="text-align: justify; line-height: 1.8; font-size: 1.1rem;">
-                  IEEE is the world's largest technical professional organization dedicated to advancing technology for the benefit of humanity. We inspire, educate, and connect the global community through cutting-edge research, professional development, and thought leadership in engineering, computing, and technology.
-                </p>
-                <p style="text-align: justify; line-height: 1.8; font-size: 1.1rem;">
-                  Our members benefit from a wide range of resources, including access to leading journals, conferences, and educational content. Whether you are a student, professional, or researcher, IEEE provides the tools and opportunities to grow and make an impact in the world of technology.
-                </p>
-              </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-md-8 text-center">
+          <div class="row justify-content-center">
+            <div class="col-md-6 text-center">
+              <img src="images/about/About.jpeg" class="img-fluid mb-4" alt="About Image 1" style="height: 23em; border-radius: 20%;">
             </div>
-          </div>
-        
-        
-          <div class="row mt-4 justify-content-center">
-            <!-- Mission Section -->
-            <div class="col-md-4 text-center">
-              <h4 class="mb-3">Mission</h4>
-              <p style="text-align: justify; line-height: 1.6; font-size: 1.1rem;">
-                IEEE's core purpose is to foster technological innovation and excellence for the benefit of humanity.
-              </p>
-            </div>
-            
-            <!-- Image Section (Mission and Vision) -->
-            <div class="col-md-2 d-flex justify-content-center align-items-center">
-                <img src="images/about/mis-vis.png" class="img-fluid" alt="Mission and Vision Image" style="max-width: 8em; height: auto;">
-            </div>
-        
-            <!-- Vision Section -->
-            <div class="col-md-4 text-center">
-                <h4 class="mb-3">Vision</h4>
-                <p style="text-align: justify; line-height: 1.6; font-size: 1.1rem;">
-                  IEEE will be essential to the global technical community and to technical professionals everywhere, and be universally recognized for the contributions of technology and of technical professionals in improving global conditions.
-                </p>
+            <div class="col-md-6 text-center">
+              <img src="images/about/ieee about image.jpg" class="img-fluid mb-4" alt="About Image 2" style="height: 23em; border-radius: 20%;">
             </div>
           </div>
           
-
-        </div>
-        
-        
-
-<div class="swiper-container membership-section mt-5" id="membership">
-  <div class="swiper-wrapper">
-
-  <h2 class="text-center mt- bodoni-moda-sc-mbhead">Why be a member?</h2>
-<div class="membership-section mt-5 swiper-container">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide circle">
-                    <h3>Access to Knowledge and Resources</h3>
-                    <p>Gain access to an extensive library of research papers, articles, and technical resources through IEEE Xplore, helping you stay at the forefront of technological advancements.</p>
-                    <img class="img" src="images/membership/Knowledge.png" alt="Student accessing IEEE resources"/>
-                </div>
-                <div class="swiper-slide circle">
-                    <h3>Networking Opportunities</h3>
-                    <p>Connect with professionals, academics, and peers in your field through IEEE's global network, conferences, and events. Build valuable relationships that can shape your future career.</p>
-                    <img src="images/membership/Networking.jpeg" alt="Networking at IEEE events"/>
-                </div>
-                <div class="swiper-slide circle">
-                    <h3>Career Development</h3>
-                    <p>Enhance your professional skills through IEEE's career resources, mentoring programs, and job boards. Access exclusive opportunities to advance your career in engineering and technology.</p>
-                    <img src="images/membership/Career.jpeg" alt="Professional career development"/>
-                </div>
-                <div class="swiper-slide circle">
-                    <h3>Continuing Education</h3>
-                    <p>Participate in IEEE's continuing education programs, workshops, and webinars. Stay updated with the latest trends and technologies in your field, earning certifications and CEUs.</p>
-                    <img src="images/membership/Skills.jpg" alt="Continuing education with IEEE"/>
-                </div>
-                <div class="swiper-slide circle">
-                    <h3>Discounts on Conferences and Events</h3>
-                    <p>Enjoy reduced registration fees for IEEE conferences, workshops, and seminars, allowing you to participate in leading technical events at an affordable rate.</p>
-                    <img src="images/membership/Discount.jpeg" alt="Discounts on IEEE events"/>
-                </div>
-                <div class="swiper-slide circle">
-                    <h3>Publishing Opportunities</h3>
-                    <p>Submit your work to IEEE's prestigious journals, conferences, and publications. Get recognized for your research and contributions to the global technical community.</p>
-                    <img src="images/membership/Professional.png" alt="Publishing with IEEE"/>
-                </div>
-                <div class="swiper-slide circle">
-                    <h3>Leadership Experience</h3>
-                    <p>Take on leadership roles in IEEE student branches, technical societies, and regional chapters. Develop your leadership skills and make a positive impact in your community.</p>
-                    <img src="images/membership/leadership.jpg" alt="Leadership opportunities in IEEE"/>
-                </div>
-                <div class="swiper-slide circle">
-                    <h3>IEEE Awards and Recognition</h3>
-                    <p>Be eligible for IEEE awards that recognize technical achievements, outstanding contributions, and innovative solutions in the engineering and technology fields.</p>
-                    <img src="images/membership/Awards.jpeg" alt="IEEE awards and recognition"/>
-                </div>
-            </div>
-      </div>
-    </div>
-</div>
-
-<!-- Calendar Section -->
-<section class="calendar-section mt-5 p-5">
-  <div class="container-fluid">
-    <div class="row justify-content-center">
-      <div class="col-md-8">
-        <h1 class="text-center mb-5 text-light">IEEE Calendar</h1>
-        <div class="calendar-container">
-          <div class="calendar-header">
-            <button id="prevMonth" class="calendar-nav-btn"><i class="fas fa-chevron-left"></i></button>
-            <h2 id="currentMonth" class="calendar-title">December 2024</h2>
-            <button id="nextMonth" class="calendar-nav-btn"><i class="fas fa-chevron-right"></i></button>
-          </div>
-          <div class="calendar-weekdays">
-            <div class="weekday">Sun</div>
-            <div class="weekday">Mon</div>
-            <div class="weekday">Tue</div>
-            <div class="weekday">Wed</div>
-            <div class="weekday">Thu</div>
-            <div class="weekday">Fri</div>
-            <div class="weekday">Sat</div>
-          </div>
-          <div id="calendarDays" class="calendar-days">
-            <!-- Calendar days will be populated by JavaScript -->
-          </div>
-        </div>
-        
-        <!-- Upcoming Events List -->
-        <div class="upcoming-events mt-4">
-          <h3 class="text-center mb-4 text-light">IEEE Events this month</h3>
-          <div class="events-list">
-            <!-- Events will be dynamically populated by JavaScript -->
+          <div class="text-start">
+            <p class="mb-3" style="text-align: justify; line-height: 1.8; font-size: 1.1rem;">
+              IEEE is the world's largest technical professional organization dedicated to advancing technology for the benefit of humanity. We inspire, educate, and connect the global community through cutting-edge research, professional development, and thought leadership in engineering, computing, and technology.
+            </p>
+            <p style="text-align: justify; line-height: 1.8; font-size: 1.1rem;">
+              Our members benefit from a wide range of resources, including access to leading journals, conferences, and educational content. Whether you are a student, professional, or researcher, IEEE provides the tools and opportunities to grow and make an impact in the world of technology.
+            </p>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
-
-<div class="container-fluid w-100 mt-3">
-  <div class="row">
-    <h1 class="text-center mt-5 text-light">Office Bearers</h1>
-  </div>
-
-  <!-- Office Bearers Grid -->
-  <div class="office-bearers-grid d-flex justify-content-between flex-nowrap px-4">
-            <!-- Branch Counselor -->
-            <div class="bearer-box">
-              <div class="bearer-image">
-                <img src="images/about/nirmal.jpg.pagespeed.ce.ESooHTdU1-.jpg" alt="Dr. D. Nirmal">
-              </div>
-              <div class="bearer-info">
-                <h3>Dr. D. Nirmal</h3>
-                <h4>Branch Counselor</h4>
-                <p><strong>Department:</strong> Department of E&T</p>
-                <p>Associate Professor<br>Associate Dean of E&T</p>
-                <p><strong>Email:</strong> nirmal@karunya.edu</p>
-              </div>
-            </div>
-
-            <!-- Technical Coordinator -->
-            <div class="bearer-box">
-              <div class="bearer-image">
-                <img src="images/about/jenkins.png.pagespeed.ce.7TfHE57uR1.png" alt="Dr. Jenkin Winston">
-              </div>
-              <div class="bearer-info">
-                <h3>Dr. Jenkin Winston</h3>
-                <h4>Technical Coordinator</h4>
-                <p><strong>Department:</strong> Department of ECE</p>
-                <p>Assistant Professor<br>Department of ECE, KITS</p>
-                <p><strong>Email:</strong> jenkinwinston@karunya.edu</p>
-              </div>
-            </div>
-
-            <!-- Chairman -->
-            <div class="bearer-box">
-              <div class="bearer-image">
-                <img src="images/about/Yogeshwer.jpeg" alt="Mr. Rathipinni Yogiswar">
-              </div>
-              <div class="bearer-info">
-                <h3>Mr. Rathipinni Yogiswar</h3>
-                <h4>Chairman</h4>
-                <p><strong>Department:</strong> Department of CSE</p>
-                <p>Student Leader<br>Department of CSE</p>
-                <p><strong>Email:</strong> rathipinniyogiswar@ieee.org</p>
-                <div class="social-links">
-                  <a href="https://www.instagram.com/yogiswar_goud/" target="_blank"><i class="fab fa-instagram"></i></a>
-                  <a href="https://www.linkedin.com/in/rathipinniyogiswar/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-              </div>
-            </div>
-
-            <!-- Vice Chairman -->
-            <div class="bearer-box">
-              <div class="bearer-image">
-                <img src="images/about/Jithin.JPG" alt="Mr. Nagula Jithin Raj">
-              </div>
-              <div class="bearer-info">
-                <h3>Mr. Nagula Jithin Raj</h3>
-                <h4>Vice Chairman</h4>
-                <p><strong>Department:</strong> Department of Aerospace</p>
-                <p>Student Leader<br>Department of Aerospace</p>
-                <p><strong>Email:</strong> nagulajithinraj@gmail.com</p>
-                <div class="social-links">
-                  <a href="https://www.instagram.com/nagula_astro/" target="_blank"><i class="fab fa-instagram"></i></a>
-                  <a href="https://www.linkedin.com/in/nagula-jithin-raj-427687230/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-              </div>
-            </div>
-
-            <!-- Secretary -->
-            <div class="bearer-box">
-              <div class="bearer-image">
-                <img src="images/about/Secretary.jpg.pagespeed.ce.iJ5qEXOhY5-removebg-preview-2.png" alt="Mr. Nagula Jagruth Raj">
-              </div>
-              <div class="bearer-info">
-                <h3>Mr. Nagula Jagruth Raj</h3>
-                <h4>Secretary</h4>
-                <p><strong>Department:</strong> Department of Aerospace</p>
-                <p>Student Leader<br>Department of Aerospace</p>
-                <p><strong>Email:</strong> jagruthraj@ieee.org</p>
-                <div class="social-links">
-                  <a href="https://www.instagram.com/nagula_astro/" target="_blank"><i class="fab fa-instagram"></i></a>
-                  <a href="https://www.linkedin.com/in/nagula-jithin-raj-427687230/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Senior Coordinators Section --
-          <div class="row justify-content-center" style="margin-bottom: 20px;">
-            <div class="row">
-              <h1 class="text-center m-5 text-light">Senior Co-ordinators</h1>
-            </div>
-            <div class="senior-coordinators-grid">
-              <!-- Priya Dharshini -->
-              <!--
-              <div class="bearer-box">
-                <div class="bearer-image">
-                  <img src="images/about/priyuu ma.jpeg" alt="Priya Dharshini">
-                </div>
-                <div class="bearer-info">
-                  <h3>Priya Dharshini</h3>
-                  <h4>Senior Coordinator</h4>
-                  <p><strong>Department:</strong> Department of CSE</p>
-                  <p>Student Coordinator<br>Department of CSE</p>
-                  <p><strong>Email:</strong> priyadharshini2004@ieee.org</p>
-                  <div class="social-links">
-                    <a href="https://www.instagram.com/__priyu___02/" target="_blank"><i class="fab fa-instagram"></i></a>
-                    <a href="https://linkedin.com/in/priya-dharshini-b87822242" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                  </div>
-                </div>
-              </div>
-              -->
-
-              <!-- Varshini -->
-              <!--
-              <div class="bearer-box">
-                <div class="bearer-image">
-                  <img src="images/about/Varshini.jpeg" alt="Varshini">
-                </div>
-                <div class="bearer-info">
-                  <h3>Varshini</h3>
-                  <h4>Senior Coordinator</h4>
-                  <p><strong>Department:</strong> Department of CSE</p>
-                  <p>Student Coordinator<br>Department of CSE</p>
-                  <p><strong>Email:</strong> varshini@ieee.org</p>
-                  <div class="social-links">
-                    <a href="https://www.instagram.com/varshini_ieee/" target="_blank"><i class="fab fa-instagram"></i></a>
-                    <a href="https://linkedin.com/in/varshini-ieee" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                  </div>
-                </div>
-              </div>  
-              -->
-
-              <!-- Saharsh -->
-              <!--
-              <div class="bearer-box">
-                <div class="bearer-image">
-                  <img src="images/about/Saharsh.jpeg" alt="Saharsh">
-                </div>
-                <div class="bearer-info">
-                  <h3>Saharsh</h3>
-                  <h4>Senior Coordinator</h4>
-                  <p><strong>Department:</strong> Department of ECE</p>
-                  <p>Student Coordinator<br>Department of ECE</p>
-                  <p><strong>Email:</strong> saisaharsh2003@ieee.org</p>
-                  <div class="social-links">
-                    <a href="https://www.instagram.com/saisaharsh__2003/" target="_blank"><i class="fab fa-instagram"></i></a>
-                    <a href="http://linkedin.com/in/saisaharsh5" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                  </div>
-                </div>
-              </div>
-              -->
-
-              <!-- Ruben -->
-              <!--
-              <div class="bearer-box">
-                <div class="bearer-image">
-                  <img src="images/about/ruben.jpeg" alt="Ruben">
-                </div>
-                <div class="bearer-info">
-                  <h3>Ruben</h3>
-                  <h4>Senior Coordinator</h4>
-                  <p><strong>Department:</strong> Department of ECE</p>
-                  <p>Student Coordinator<br>Department of ECE</p>
-                  <p><strong>Email:</strong> rubenmathew15@gmail.com</p>
-                  <div class="social-links">
-                    <a href="https://www.facebook.com/rubenmathew0515" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://www.linkedin.com/in/ruben-mathew-256329271" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                  </div>
-                </div>
-              </div>
-              -->
-            </div>
-          </div>
+        
+        
+      <div class="row mt-4 justify-content-center">
+        <!-- Mission Section -->
+        <div class="col-md-4 text-center">
+          <h4 class="mb-3">Mission</h4>
+          <p style="text-align: justify; line-height: 1.6; font-size: 1.1rem;">
+            IEEE's core purpose is to foster technological innovation and excellence for the benefit of humanity.
+          </p>
         </div>
-
+            
+        <!-- Image Section (Mission and Vision) -->
+        <div class="col-md-2 d-flex justify-content-center align-items-center">
+            <img src="images/about/mis-vis.png" class="img-fluid" alt="Mission and Vision Image" style="max-width: 8em; height: auto;">
+        </div>
+        
+        <!-- Vision Section -->
+        <div class="col-md-4 text-center">
+            <h4 class="mb-3">Vision</h4>
+            <p style="text-align: justify; line-height: 1.6; font-size: 1.1rem;">
+              IEEE will be essential to the global technical community and to technical professionals everywhere, and be universally recognized for the contributions of technology and of technical professionals in improving global conditions.
+            </p>
+        </div>
+      </div>
+          
 
     </div>
-</section>
+        
+        
 
-<script>
-    $(document).ready(function(){
-      $("img#img1").attr("src", "images/events/Aerospace_rocket_stages.jpg");
+    <div class="swiper-container membership-section mt-5" id="membership">
+      <div class="swiper-wrapper">
 
-});
-
-// Calendar Functionality
-document.addEventListener('DOMContentLoaded', function() {
-    let currentDate = new Date();
-    let currentMonth = currentDate.getMonth();
-    let currentYear = currentDate.getFullYear();
-
-    const monthNames = [
-        "January", "February", "March", "April", "May", "June",
-        "July", "August", "September", "October", "November", "December"
-    ];
-
-    // Sample events data with more details
-    const events = [
-        { 
-            day: 15, 
-            month: 11, 
-            year: 2024, 
-            title: "IEEE Technical Workshop",
-            description: "Advanced Robotics and AI Integration",
-            time: "2:00 PM - 5:00 PM"
-        },
-        { 
-            day: 22, 
-            month: 11, 
-            year: 2024, 
-            title: "IEEE Student Branch Meeting",
-            description: "Monthly review and planning session",
-            time: "4:00 PM - 6:00 PM"
-        },
-        { 
-            day: 28, 
-            month: 11, 
-            year: 2024, 
-            title: "IEEE Project Showcase",
-            description: "Student projects demonstration and networking",
-            time: "10:00 AM - 2:00 PM"
-        },
-        { 
-            day: 5, 
-            month: 0, 
-            year: 2025, 
-            title: "New Year IEEE Meet",
-            description: "Kickoff meeting for the new year",
-            time: "3:00 PM - 5:00 PM"
-        },
-        { 
-            day: 12, 
-            month: 0, 
-            year: 2025, 
-            title: "Technical Seminar",
-            description: "Latest trends in electrical engineering",
-            time: "11:00 AM - 1:00 PM"
-        },
-        { 
-            day: 18, 
-            month: 0, 
-            year: 2025, 
-            title: "IEEE Workshop Series",
-            description: "Hands-on workshop on IoT applications",
-            time: "9:00 AM - 12:00 PM"
-        },
-        { 
-            day: 8, 
-            month: 1, 
-            year: 2025, 
-            title: "February IEEE Meet",
-            description: "Monthly IEEE student branch meeting",
-            time: "4:30 PM - 6:30 PM"
-        },
-        { 
-            day: 15, 
-            month: 1, 
-            year: 2025, 
-            title: "Valentine's Tech Event",
-            description: "Special technical event with networking",
-            time: "2:00 PM - 4:00 PM"
-        },
-        // IEEE Week Events - Last Week of August 2025
-        { 
-            day: 25, 
-            month: 7, 
-            year: 2025, 
-            title: "IEEE Week - Day 1: Inauguration",
-            description: "IEEE Week grand opening ceremony and keynote speeches",
-            time: "9:00 AM - 12:00 PM"
-        },
-        { 
-            day: 26, 
-            month: 7, 
-            year: 2025, 
-            title: "IEEE Week - Day 2: Technical Workshops",
-            description: "Hands-on workshops on emerging technologies and innovations",
-            time: "10:00 AM - 4:00 PM"
-        },
-        { 
-            day: 27, 
-            month: 7, 
-            year: 2025, 
-            title: "IEEE Week - Day 3: Project Competition",
-            description: "Student project competition and innovation showcase",
-            time: "9:00 AM - 6:00 PM"
-        },
-        { 
-            day: 28, 
-            month: 7, 
-            year: 2025, 
-            title: "IEEE Week - Day 4: Industry Connect",
-            description: "Industry expert talks and networking sessions",
-            time: "2:00 PM - 7:00 PM"
-        },
-        { 
-            day: 29, 
-            month: 7, 
-            year: 2025, 
-            title: "IEEE Week - Day 5: Cultural & Sports",
-            description: "Cultural events, sports activities, and team building",
-            time: "10:00 AM - 5:00 PM"
-        },
-        { 
-            day: 30, 
-            month: 7, 
-            year: 2025, 
-            title: "IEEE Week - Day 6: Hackathon",
-            description: "24-hour hackathon challenge for innovative solutions",
-            time: "9:00 AM - 9:00 AM (Next Day)"
-        },
-        { 
-            day: 31, 
-            month: 7, 
-            year: 2025, 
-            title: "IEEE Week - Day 7: Closing Ceremony",
-            description: "Award ceremony, closing remarks, and celebration",
-            time: "4:00 PM - 8:00 PM"
-        }
-    ];
-
-    function updateEventsList(month, year) {
-        const eventsList = document.querySelector('.events-list');
-        const monthEvents = events.filter(event => 
-            event.month === month && event.year === year
-        ).sort((a, b) => a.day - b.day); // Sort by day
-
-        eventsList.innerHTML = '';
-
-        if (monthEvents.length === 0) {
-            eventsList.innerHTML = `
-                <div class="event-item">
-                    <div class="event-details">
-                        <h4>No Events Scheduled</h4>
-                        <p>There are no IEEE events scheduled for ${monthNames[month]} ${year}.</p>
-                        <span class="event-time">Check back later for updates!</span>
+      <h2 class="text-center mt- bodoni-moda-sc-mbhead">Why be a member?</h2>
+      <div class="membership-section mt-5 swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide circle">
+                        <h3>Access to Knowledge and Resources</h3>
+                        <p>Gain access to an extensive library of research papers, articles, and technical resources through IEEE Xplore, helping you stay at the forefront of technological advancements.</p>
+                        <img class="img" src="images/membership/Knowledge.png" alt="Student accessing IEEE resources"/>
+                    </div>
+                    <div class="swiper-slide circle">
+                        <h3>Networking Opportunities</h3>
+                        <p>Connect with professionals, academics, and peers in your field through IEEE's global network, conferences, and events. Build valuable relationships that can shape your future career.</p>
+                        <img src="images/membership/Networking.jpeg" alt="Networking at IEEE events"/>
+                    </div>
+                    <div class="swiper-slide circle">
+                        <h3>Career Development</h3>
+                        <p>Enhance your professional skills through IEEE's career resources, mentoring programs, and job boards. Access exclusive opportunities to advance your career in engineering and technology.</p>
+                        <img src="images/membership/Career.jpeg" alt="Professional career development"/>
+                    </div>
+                    <div class="swiper-slide circle">
+                        <h3>Continuing Education</h3>
+                        <p>Participate in IEEE's continuing education programs, workshops, and webinars. Stay updated with the latest trends and technologies in your field, earning certifications and CEUs.</p>
+                        <img src="images/membership/Skills.jpg" alt="Continuing education with IEEE"/>
+                    </div>
+                    <div class="swiper-slide circle">
+                        <h3>Discounts on Conferences and Events</h3>
+                        <p>Enjoy reduced registration fees for IEEE conferences, workshops, and seminars, allowing you to participate in leading technical events at an affordable rate.</p>
+                        <img src="images/membership/Discount.jpeg" alt="Discounts on IEEE events"/>
+                    </div>
+                    <div class="swiper-slide circle">
+                        <h3>Publishing Opportunities</h3>
+                        <p>Submit your work to IEEE's prestigious journals, conferences, and publications. Get recognized for your research and contributions to the global technical community.</p>
+                        <img src="images/membership/Professional.png" alt="Publishing with IEEE"/>
+                    </div>
+                    <div class="swiper-slide circle">
+                        <h3>Leadership Experience</h3>
+                        <p>Take on leadership roles in IEEE student branches, technical societies, and regional chapters. Develop your leadership skills and make a positive impact in your community.</p>
+                        <img src="images/membership/leadership.jpg" alt="Leadership opportunities in IEEE"/>
+                    </div>
+                    <div class="swiper-slide circle">
+                        <h3>IEEE Awards and Recognition</h3>
+                        <p>Be eligible for IEEE awards that recognize technical achievements, outstanding contributions, and innovative solutions in the engineering and technology fields.</p>
+                        <img src="images/membership/Awards.jpeg" alt="IEEE awards and recognition"/>
                     </div>
                 </div>
-            `;
-            return;
-        }
+          </div>
+        </div>
+    </div>
 
-        monthEvents.forEach(event => {
-            const eventElement = document.createElement('div');
-            eventElement.className = 'event-item';
-            eventElement.innerHTML = `
-                <div class="event-date">
-                    <span class="day">${event.day}</span>
-                    <span class="month">${monthNames[event.month].substring(0, 3)}</span>
+<!-- Society Section -->
+<section class="society-section mt-5 p-5">
+  <div class="container-fluid">
+    <div class="row justify-content-center">
+      <div class="col-md-10">
+        <h2 class="text-center mb-5 text-light bodoni-moda-sc-mbhead">IEEE Societies</h2>
+        <div class="society-container">
+          <!-- Search Bar -->
+          <div class="search-container mb-4">
+            <div class="input-group">
+              <span class="input-group-text"><i class="fas fa-search"></i></span>
+              <input type="text" id="societySearch" class="form-control" placeholder="Search for a society...">
+            </div>
+          </div>
+          
+          <!-- Societies List Box -->
+          <div class="societies-box">
+            <div class="societies-list" id="societiesList">
+              <!-- Societies will be populated by JavaScript -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Calendar Section -->
+    <section class="calendar-section mt-5 p-5">
+      <div class="container-fluid">
+        <div class="row justify-content-center">
+          <div class="col-md-8">
+            <h1 class="text-center mb-5 text-light">IEEE Calendar</h1>
+            <div class="calendar-container">
+              <div class="calendar-header">
+                <button id="prevMonth" class="calendar-nav-btn"><i class="fas fa-chevron-left"></i></button>
+                <h2 id="currentMonth" class="calendar-title">December 2024</h2>
+                <button id="nextMonth" class="calendar-nav-btn"><i class="fas fa-chevron-right"></i></button>
+              </div>
+              <div class="calendar-weekdays">
+                <div class="weekday">Sun</div>
+                <div class="weekday">Mon</div>
+                <div class="weekday">Tue</div>
+                <div class="weekday">Wed</div>
+                <div class="weekday">Thu</div>
+                <div class="weekday">Fri</div>
+                <div class="weekday">Sat</div>
+              </div>
+              <div id="calendarDays" class="calendar-days">
+                <!-- Calendar days will be populated by JavaScript -->
+              </div>
+            </div>
+            
+            <!-- Upcoming Events List -->
+            <div class="upcoming-events mt-4">
+              <h3 class="text-center mb-4 text-light">IEEE Events this month</h3>
+              <div class="events-list">
+                <!-- Events will be dynamically populated by JavaScript -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Event Details Modal -->
+    <div class="modal fade" id="eventModal" tabindex="-1" aria-labelledby="eventModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="eventModalLabel">Event Details</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <!-- Filled dynamically -->
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid w-100 mt-3">
+      <div class="row">
+        <h1 class="text-center mt-5 text-light">Executive Committee 2025</h1>
+      </div>
+
+      <!-- Office Bearers Grid -->
+      <div class="office-bearers-grid">
+                <!-- Branch Counselor -->
+                <div class="bearer-box">
+                  <div class="bearer-image">
+                    <img src="images/about/nirmal.jpg.pagespeed.ce.ESooHTdU1-.jpg" alt="Dr. D. Nirmal">
+                  </div>
+                  <div class="bearer-info">
+                    <h3>Dr. D. Nirmal</h3>
+                    <h4>Branch Counselor</h4>
+                    <p>Associate Dean of Engineering and Technology</p>
+                    <p><strong>Email:</strong>   nirmal@karunya.edu</p>
+                    <div class="social-links">
+                      <a href=" https://www.linkedin.com/in/abhijith-g-n-845777294?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BWXF09uIHStidF5yQWk%2BetA%3D%3D" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                  </div>
                 </div>
-                <div class="event-details">
-                    <h4>${event.title}</h4>
-                    <p>${event.description}</p>
-                    <span class="event-time"><i class="fas fa-clock"></i> ${event.time}</span>
+
+                <!-- Technical Coordinator -->
+                <div class="bearer-box">
+                  <div class="bearer-image">
+                    <img src="images/about/jenkins.png.pagespeed.ce.7TfHE57uR1.png" alt="Dr. Jenkin Winston">
+                  </div>
+                  <div class="bearer-info">
+                    <h3>Dr. Jenkin Winston</h3>
+                    <h4>Technical Coordinator</h4>
+                    <p> Department of ECE   </p>
+                    <p>Assistant Professor</p>
+                    <p><strong>Email:</strong>jenkinwinston@karunya.edu</p>
+                    <div class="social-links">
+                      <a href=" https://www.linkedin.com/in/j-jenkin-winston-1967b2146/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                  </div>
                 </div>
-            `;
-            eventsList.appendChild(eventElement);
-        });
-    }
 
-    function renderCalendar(month, year) {
-        const firstDay = new Date(year, month, 1);
-        const lastDay = new Date(year, month + 1, 0);
-        const startingDay = firstDay.getDay();
-        const monthLength = lastDay.getDate();
+                <!-- Chairman -->
+                <div class="bearer-box">
+                  <div class="bearer-image">
+                    <img src="images/about/abi anna .jpg" alt="Mr. Abhijith G N">
+                  </div>
+                  <div class="bearer-info">
+                    <h3>Abhijith G N</h3>
+                    <h4>Execom</h4>
+                    <p>Department of Aerospace Engineering</p>
+                    <p><strong>Email:</strong> abhijithgirish@ieee.org</p>
+                    <div class="social-links">
+                      <a href="https://www.linkedin.com/in/dr-d-nirmal-558a3963/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                  </div>
+                </div>
 
-        const calendarDays = document.getElementById('calendarDays');
-        const currentMonthElement = document.getElementById('currentMonth');
-        
-        currentMonthElement.textContent = `${monthNames[month]} ${year}`;
-        calendarDays.innerHTML = '';
+                <!-- Vice Chairman -->
+                <div class="bearer-box">
+                  <div class="bearer-image">
+                    <img src="images/about/Karan anna .JPG" alt="Mr. Karan Kumar">
+                  </div>
+                  <div class="bearer-info">
+                    <h3>Karan Kumar</h3>
+                    <h4>Execom</h4>
+                    <p>Department of Aerospace Engineering</p>
+                    <p><strong>Email:</strong> Karan7Kumar@ieee.org</p>
+                    <div class="social-links">
+                      <a href="https://www.linkedin.com/in/karan-kumar-ae42/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                  </div>
+                </div>
 
-        // Add empty cells for days before the first day of the month
-        for (let i = 0; i < startingDay; i++) {
-            const emptyDay = document.createElement('div');
-            emptyDay.className = 'calendar-day other-month';
-            calendarDays.appendChild(emptyDay);
-        }
+                <!-- Secretary -->
+                <div class="bearer-box">
+                  <div class="bearer-image">
+                    <img src="images/about/taruni.jpg" alt="Miss. Taruni Nagireddy">
+                  </div>
+                  <div class="bearer-info">
+                    <h3>Taruni Nagireddy</h3>
+                    <h4>Execom</h4>
+                    <p>Department of Aerospace Engineering</p>
+                    <p><strong>Email:</strong> tarunipriya22@ieee.org</p>
+                    <div class="social-links">
+                      <a href="https://www.linkedin.com/in/taruninagireddy/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                  </div>
+                </div>
 
-        // Add days of the month
-        for (let day = 1; day <= monthLength; day++) {
-            const dayElement = document.createElement('div');
-            dayElement.className = 'calendar-day';
-            dayElement.textContent = day;
+                 <!-- web master -->
+                 <div class="bearer-box">
+                  <div class="bearer-image">
+                    <img src="images/about/surya_image.JPG" alt="Mr. Jayasury">
+                  </div>
+                  <div class="bearer-info">
+                    <h3>Jayasurya</h3>
+                    <h4>Execom</h4>
+                    <p>Department of Mechanical Engineering</p>
+                    <p><strong>Email:</strong> jayasuryap@ieee.org</p>
+                    <div class="social-links">
+                      <a href="https://www.linkedin.com/in/jayasurya-p-479463356/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                  </div>
+                </div>
 
-            // Check if it's today
-            if (day === currentDate.getDate() && month === currentDate.getMonth() && year === currentDate.getFullYear()) {
-                dayElement.classList.add('today');
-            }
+      </div>
 
-            // Check if it has an event
-            const hasEvent = events.some(event => 
-                event.day === day && event.month === month && event.year === year
-            );
-            if (hasEvent) {
-                dayElement.classList.add('event');
-                dayElement.title = events.find(event => 
-                    event.day === day && event.month === month && event.year === year
-                ).title;
-            }
+              <!-- Senior Coordinators Section 
+              <div class="row justify-content-center" style="margin-bottom: 20px;">
+                <div class="row">
+                  <h1 class="text-center m-5 text-light">Senior Co-ordinators</h1>
+                </div>
+                <div class="senior-coordinators-grid">
+                  <!-- Priya Dharshini 
+                  <div class="bearer-box">
+                    <div class="bearer-image">
+                      <img src="images/about/priyuu ma.jpeg" alt="Priya Dharshini">
+                    </div>
+                    <div class="bearer-info">
+                      <h3>Priya Dharshini</h3>
+                      <h4>Senior Coordinator</h4>
+                      <p><strong>Department:</strong> Department of CSE</p>
+                      <p>Student Coordinator<br>Department of CSE</p>
+                      <p><strong>Email:</strong> priyadharshini2004@ieee.org</p>
+                      <div class="social-links">
+                        <a href="https://www.instagram.com/__priyu___02/" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://linkedin.com/in/priya-dharshini-b87822242" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                      </div>
+                    </div>
+                  </div>
 
-            calendarDays.appendChild(dayElement);
-        }
+                  <!-- Varshini 
+                  <div class="bearer-box">
+                    <div class="bearer-image">
+                      <img src="images/about/Varshini.jpeg" alt="Varshini">
+                    </div>
+                    <div class="bearer-info">
+                      <h3>Varshini</h3>
+                      <h4>Senior Coordinator</h4>
+                      <p><strong>Department:</strong> Department of CSE</p>
+                      <p>Student Coordinator<br>Department of CSE</p>
+                      <p><strong>Email:</strong> varshini@ieee.org</p>
+                      <div class="social-links">
+                        <a href="https://www.instagram.com/varshini_ieee/" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://linkedin.com/in/varshini-ieee" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                      </div>
+                    </div>
+                  </div>
 
-        // Update the events list for the current month
-        updateEventsList(month, year);
-    }
+                  <!-- Saharsh 
+                  <div class="bearer-box">
+                    <div class="bearer-image">
+                      <img src="images/about/Saharsh.jpeg" alt="Saharsh">
+                    </div>
+                    <div class="bearer-info">
+                      <h3>Saharsh</h3>
+                      <h4>Senior Coordinator</h4>
+                      <p><strong>Department:</strong> Department of ECE</p>
+                      <p>Student Coordinator<br>Department of ECE</p>
+                      <p><strong>Email:</strong> saisaharsh2003@ieee.org</p>
+                      <div class="social-links">
+                        <a href="https://www.instagram.com/saisaharsh__2003/" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="http://linkedin.com/in/saisaharsh5" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                      </div>
+                    </div>
+                  </div>
 
-    // Navigation buttons
-    document.getElementById('prevMonth').addEventListener('click', function() {
-        currentMonth--;
-        if (currentMonth < 0) {
-            currentMonth = 11;
-            currentYear--;
-        }
-        renderCalendar(currentMonth, currentYear);
-    });
+                  <!-- Ruben -
+                  <div class="bearer-box">
+                    <div class="bearer-image">
+                      <img src="images/about/ruben.jpeg" alt="Ruben">
+                    </div>
+                    <div class="bearer-info">
+                      <h3>Ruben</h3>
+                      <h4>Senior Coordinator</h4>
+                      <p><strong>Department:</strong> Department of ECE</p>
+                      <p>Student Coordinator<br>Department of ECE</p>
+                      <p><strong>Email:</strong> rubenmathew15@gmail.com</p>
+                      <div class="social-links">
+                        <a href="https://www.facebook.com/rubenmathew0515" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.linkedin.com/in/ruben-mathew-256329271" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+    </div> -->
+</section>
 
-    document.getElementById('nextMonth').addEventListener('click', function() {
-        currentMonth++;
-        if (currentMonth > 11) {
-            currentMonth = 0;
-            currentYear++;
-        }
-        renderCalendar(currentMonth, currentYear);
-    });
-
-    // Initialize calendar
-    renderCalendar(currentMonth, currentYear);
-});
-
-
-</script>
-
-
-<section id="contact" class="mt-5 animate-on-scroll p-5 h-100">
+<section id="contact" class="mt-1 animate-on-scroll py-1 px-1 h-100">
   <div class="container-fluid row p-4" style="background-color: rgba(10, 10, 10, 0.5);">
     <p class="text-center p-3 display-3">We would love to hear from you.</p>
     <div class="col-md-8 mt-4" style="margin-left: 0;">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d12082.597196464409!2d76.74165822672815!3d10.940885685506142!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1724784744896!5m2!1sen!2sin" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d12082.597196464409!2d76.74165822672815!3d10.940885685506142!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1724784744896!5m2!1sen!2sin" width="100%" height="450" style="border:0;" allowfullscreen="" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
     <div class="col-md-4 mt-4" style="position: relative; background-size: cover;padding: 0%; background-position: center; background-image: url('images/Contanct/contact.jpg');">
       <div style="position: absolute; top: 0; left: 0;margin-right: 0; width: 100%; height: 100%; background-color: rgba(10, 10, 10, 0.5); z-index: 1;padding: 0%;"></div>
       <h2 class="text-center pt-4" style="position: relative; z-index: 2;"><i class="fa-solid fa-envelope fa-2xl" style="color: #ffffff;"></i> Email</h2>
       <p class="text-center" style="position: relative; z-index: 2;">sb.ieee.karunya@gmail.com</p>
       <h2 class="text-center pt-4 m-4" style="position: relative; z-index: 2;"><i class="fa-solid fa-phone fa-2xl" style="color: #ffffff;"></i> Phone</h2>
-      <p class="text-center" style="position: relative; z-index: 2;">+91 8630797801 / +91 8088873718</p>
+      <p class="text-center" style="position: relative; z-index: 2;">+91 8248188509 / +91 7358651234</p>
       <h2 class="text-center pt-4 m-4" style="position: relative; z-index: 2;"><i class="fa-solid fa-location-dot fa-2xl" style="color: #ffffff;"></i> Address</h2>
       <p class="text-center" style="position: relative; z-index: 2;">Karunya Institute of Technology and Sciences, <br>Karunya Nagar, Coimbatore,<br>Tamil Nadu - (641114)</p>
     </div>
   </div>
 </section>
-
 <footer class="m-0 p-0" style="margin:0;padding:0;">
   <div class="container-fluid bg-primary text-white p-5 m-0">
     <div class="row">
@@ -1326,16 +1190,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
   <div class="p-4 m-0 d-flex flex-column align-items-center" style="background-color:rgba(0, 0, 0, 0.499);">
     <div class="d-flex justify-content-center gap-3" style="width: auto;">
-      <div><a href="                #                "><i class="fa-brands fa-facebook fa-2xl" style="color: #ffffff;"></i></a></div>
+      <div><a href="#"><i class="fa-brands fa-facebook fa-2xl" style="color: #ffffff;"></i></a></div>
       <div><a href="https://www.instagram.com/ieee_karunya_/"><i class="fa-brands fa-instagram fa-2xl" style="color: #ffffff;"></i></a></div>
       <div><a href="tel:+919701653823"><i class="fa-solid fa-phone fa-2xl" style="color: #ffffff;"></i></a></div>
+      <div><a href="#"><i class="fa-brands fa-youtube fa-2xl" style="color: #ffffff;"></i></a></div>
       <div><a href="https://www.linkedin.com/company/ieee-karunya/mycompany/"><i class="fa-brands fa-linkedin fa-2xl" style="color: #ffffff;"></i></a></div>
     </div>
     <div class="d-flex justify-content-center p-4">
       <div class="d-flex justify-content-center gap-2" style="width: auto;">
         <div><a href="#home" style="color: aliceblue;">Home</a></div>
-        <div><a href="#events" style="color: aliceblue;">Events</a></div>
         <div><a href="#about" style="color: aliceblue;">About</a></div>
+        <div><a href="#events" style="color: aliceblue;">Events</a></div>
         <div><a href="#membership" style="color: aliceblue;">Membership</a></div>
         <div><a href="#contacts" style="color: aliceblue;">Contacts</a></div>
       </div>
@@ -1358,8 +1223,392 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
   </div> 
 </footer>
-
-
 </div>
+
+
+
+
+
+
+
+
+
+<script>
+  $(document).ready(function(){
+    $("img#img1").attr("src", "images/events/Aerospace_rocket_stages.jpg");
+
+});
+
+// Calendar Functionality
+document.addEventListener('DOMContentLoaded', function() {
+  let currentDate = new Date();
+  let currentMonth = currentDate.getMonth();
+  let currentYear = currentDate.getFullYear();
+
+  const monthNames = [
+      "January", "February", "March", "April", "May", "June",
+      "July", "August", "September", "October", "November", "December"
+  ];
+
+  // Public Google Calendar (India Holidays). Set API key to enable fetch.
+  const GCAL_API_KEY = 'AIzaSyD7q4ml2cCmyn6QCancv2WzoHYKZBzxbLQ';
+  const GCAL_CALENDAR_ID = 'en.indian#holiday@group.v.calendar.google.com';
+  const gcalMonthCache = new Map();
+
+  // Sample events data with more details
+  // Add isIEEE flag to control which events show in the monthly list (only IEEE)
+  const events = [
+      { 
+          day: 15, 
+          month: 11, 
+          year: 2024, 
+          title: "IEEE Technical Workshop",
+          description: "Advanced Robotics and AI Integration",
+          time: "2:00 PM - 5:00 PM",
+          isIEEE: true
+      },
+      { 
+          day: 22, 
+          month: 11, 
+          year: 2024, 
+          title: "IEEE Student Branch Meeting",
+          description: "Monthly review and planning session",
+          time: "4:00 PM - 6:00 PM",
+          isIEEE: true
+      },
+      { 
+          day: 28, 
+          month: 11, 
+          year: 2024, 
+          title: "IEEE Project Showcase",
+          description: "Student projects demonstration and networking",
+          time: "10:00 AM - 2:00 PM",
+          isIEEE: true
+      },
+      { 
+          day: 5, 
+          month: 0, 
+          year: 2025, 
+          title: "New Year IEEE Meet",
+          description: "Kickoff meeting for the new year",
+          time: "3:00 PM - 5:00 PM",
+          isIEEE: true
+      },
+      { 
+          day: 12, 
+          month: 0, 
+          year: 2025, 
+          title: "Technical Seminar",
+          description: "Latest trends in electrical engineering",
+          time: "11:00 AM - 1:00 PM",
+          isIEEE: true
+      },
+      { 
+          day: 18, 
+          month: 0, 
+          year: 2025, 
+          title: "IEEE Workshop Series",
+          description: "Hands-on workshop on IoT applications",
+          time: "9:00 AM - 12:00 PM",
+          isIEEE: true
+      },
+      { 
+          day: 8, 
+          month: 1, 
+          year: 2025, 
+          title: "February IEEE Meet",
+          description: "Monthly IEEE student branch meeting",
+          time: "4:30 PM - 6:30 PM",
+          isIEEE: true
+      },
+      { 
+          day: 15, 
+          month: 1, 
+          year: 2025, 
+          title: "Valentine's Tech Event",
+          description: "Special technical event with networking",
+          time: "2:00 PM - 4:00 PM",
+          isIEEE: true
+      },
+      // IEEE Week Events - Sep 1–6, 2025
+      { 
+          day: 8, 
+          month: 8, 
+          year: 2025, 
+          title: "IEEE Week - Day 1: Inauguration, Tech talk",
+          description: "IEEE Week inauguration and keynote",
+          time: " All Day",
+          isIEEE: true
+      },
+      { 
+          day: 9, 
+          month: 8, 
+          year: 2025, 
+          title: "IEEE Week - Day 2: Electro Jenga, Mind Maze",
+          description: "IEEE Week",
+          time: "All Day",
+          isIEEE: true
+      },
+      { 
+          day: 10, 
+          month: 8, 
+          year: 2025, 
+          title: "IEEE Week - Day 3: Tech Treasure hunt, One-Day Trader",
+          description: "IEEE Week",
+          time: "All Day",
+          isIEEE: true
+      },
+      { 
+          day: 11, 
+          month: 8, 
+          year: 2025, 
+          title: "IEEE Week - Day 4: AD-Venture",
+          description: "IEEE Week",
+          time: "All Day",
+          isIEEE: true
+      },
+      { 
+          day: 12, 
+          month: 8, 
+          year: 2025, 
+          title: "IEEE Week - Day 5:Esports, Cad Challange",
+          description: "IEEE Week",
+          time: "All Day",
+          isIEEE: true
+      },
+      // General occasions (non-IEEE) — highlight in calendar only, not listed below
+      { 
+          day: 25, 
+          month: 11, 
+          year: 2024, 
+          title: "Christmas",
+          description: "Festival",
+          time: "All Day",
+          isIEEE: false
+      },
+      { 
+          day: 1, 
+          month: 0, 
+          year: 2025, 
+          title: "New Year's Day",
+          description: "Public Holiday",
+          time: "All Day",
+          isIEEE: false
+      },
+      { 
+          day: 26, 
+          month: 0, 
+          year: 2025, 
+          title: "Republic Day",
+          description: "India",
+          time: "All Day",
+          isIEEE: false
+      },
+      { 
+          day: 15, 
+          month: 7, 
+          year: 2025, 
+          title: "Independence Day",
+          description: "India",
+          time: "All Day",
+          isIEEE: false
+      },
+      { 
+          day: 2, 
+          month: 9, 
+          year: 2025, 
+          title: "Gandhi Jayanti",
+          description: "India",
+          time: "All Day",
+          isIEEE: false
+      }
+  ];
+
+  function updateEventsList(month, year) {
+      const eventsList = document.querySelector('.events-list');
+      // Show only IEEE events in the list; all events still highlighted in calendar
+      const monthEvents = events.filter(event => 
+          event.month === month && event.year === year && event.isIEEE
+      ).sort((a, b) => a.day - b.day); // Sort by day
+
+      eventsList.innerHTML = '';
+
+      if (monthEvents.length === 0) {
+          eventsList.innerHTML = `
+              <div class="event-item">
+                  <div class="event-details">
+                      <h4>No Events Scheduled</h4>
+                      <p>There are no IEEE events scheduled for ${monthNames[month]} ${year}.</p>
+                      <span class="event-time">Check back later for updates!</span>
+                  </div>
+              </div>
+          `;
+          return;
+      }
+
+      monthEvents.forEach(event => {
+          const eventElement = document.createElement('div');
+          eventElement.className = 'event-item';
+          eventElement.innerHTML = `
+              <div class="event-date">
+                  <span class="day">${event.day}</span>
+                  <span class="month">${monthNames[event.month].substring(0, 3)}</span>
+              </div>
+              <div class="event-details">
+                  <h4>${event.title}</h4>
+                  <p>${event.description}</p>
+                  <span class="event-time"><i class="fas fa-clock"></i> ${event.time}</span>
+              </div>
+          `;
+          eventsList.appendChild(eventElement);
+      });
+  }
+
+  async function fetchGoogleEventsForMonth(month, year) {
+      if (!GCAL_API_KEY || !GCAL_CALENDAR_ID) { return []; }
+
+      const cacheKey = `${year}-${month}`;
+      if (gcalMonthCache.has(cacheKey)) return gcalMonthCache.get(cacheKey);
+
+      const timeMin = new Date(Date.UTC(year, month, 1, 0, 0, 0)).toISOString();
+      const timeMax = new Date(Date.UTC(year, month + 1, 1, 0, 0, 0)).toISOString();
+      const base = 'https://www.googleapis.com/calendar/v3/calendars/';
+      const url = `${base}${encodeURIComponent(GCAL_CALENDAR_ID)}/events?singleEvents=true&orderBy=startTime&timeMin=${encodeURIComponent(timeMin)}&timeMax=${encodeURIComponent(timeMax)}&key=${encodeURIComponent(GCAL_API_KEY)}`;
+
+      try {
+        const res = await fetch(url);
+        if (!res.ok) throw new Error('Calendar fetch failed');
+        const data = await res.json();
+        const items = Array.isArray(data.items) ? data.items : [];
+        const mapped = items.map(ev => {
+          const start = ev.start || {};
+          const dateStr = start.date || start.dateTime;
+          if (!dateStr) return null;
+          const d = new Date(dateStr);
+          const end = ev.end || {};
+          let time = 'All Day';
+          if (start.dateTime) {
+            const s = new Date(start.dateTime);
+            const e = end.dateTime ? new Date(end.dateTime) : null;
+            const fmt = t => `${t.getHours().toString().padStart(2,'0')}:${t.getMinutes().toString().padStart(2,'0')}`;
+            time = e ? `${fmt(s)} - ${fmt(e)}` : fmt(s);
+          }
+          return {
+            day: d.getUTCDate(),
+            month: d.getUTCMonth(),
+            year: d.getUTCFullYear(),
+            title: ev.summary || 'Event',
+            description: ev.description || (ev.summary || 'Event'),
+            time,
+            isIEEE: false
+          };
+        }).filter(Boolean);
+        gcalMonthCache.set(cacheKey, mapped);
+        return mapped;
+      } catch (e) {
+        console.error(e);
+        gcalMonthCache.set(cacheKey, []);
+        return [];
+      }
+  }
+
+  async function renderCalendar(month, year) {
+      const firstDay = new Date(year, month, 1);
+      const lastDay = new Date(year, month + 1, 0);
+      const startingDay = firstDay.getDay();
+      const monthLength = lastDay.getDate();
+
+      const calendarDays = document.getElementById('calendarDays');
+      const currentMonthElement = document.getElementById('currentMonth');
+      
+      currentMonthElement.textContent = `${monthNames[month]} ${year}`;
+      calendarDays.innerHTML = '';
+
+      // Merge IEEE/static events with public Google Holidays
+      const gcalEvents = await fetchGoogleEventsForMonth(month, year);
+      const monthAllEvents = events.filter(e => e.month === month && e.year === year).concat(gcalEvents);
+
+      // Add empty cells for days before the first day of the month
+      for (let i = 0; i < startingDay; i++) {
+          const emptyDay = document.createElement('div');
+          emptyDay.className = 'calendar-day other-month';
+          calendarDays.appendChild(emptyDay);
+      }
+
+      // Add days of the month
+      for (let day = 1; day <= monthLength; day++) {
+          const dayElement = document.createElement('div');
+          dayElement.className = 'calendar-day';
+          dayElement.textContent = day;
+
+          // Check if it's today
+          const today = new Date();
+          if (day === today.getDate() && month === today.getMonth() && year === today.getFullYear()) {
+              dayElement.classList.add('today');
+          }
+
+          // Check if it has an event
+          const todaysEvents = monthAllEvents.filter(event => 
+              event.day === day && event.month === month && event.year === year
+          );
+          const hasEvent = todaysEvents.length > 0;
+          if (hasEvent) {
+              dayElement.classList.add('event');
+              const first = todaysEvents[0];
+              dayElement.title = first.title;
+
+              // Click to open modal with all events for the day
+              dayElement.style.cursor = 'pointer';
+              dayElement.addEventListener('click', function() {
+                  const modalEl = document.getElementById('eventModal');
+                  const modalBody = modalEl.querySelector('.modal-body');
+                  const modalTitle = modalEl.querySelector('#eventModalLabel');
+
+                  modalTitle.textContent = `${monthNames[month]} ${day}, ${year}`;
+                  modalBody.innerHTML = todaysEvents.map(ev => `
+                      <div class="mb-3 p-2" style="border-left:4px solid ${ev.isIEEE ? '#0d6efd' : '#6c757d'};background:rgba(255,255,255,0.6);">
+                        <div class="fw-bold">${ev.title}</div>
+                        <div class="small">${ev.description || ''}</div>
+                        <div class="small text-muted">${ev.time || ''} ${ev.isIEEE ? '(IEEE)' : ''}</div>
+                      </div>
+                  `).join('');
+
+                  const bsModal = new bootstrap.Modal(modalEl);
+                  bsModal.show();
+              });
+          }
+
+          calendarDays.appendChild(dayElement);
+      }
+
+      // Update the events list for the current month
+      updateEventsList(month, year);
+  }
+
+  // Navigation buttons
+  document.getElementById('prevMonth').addEventListener('click', function() {
+      currentMonth--;
+      if (currentMonth < 0) {
+          currentMonth = 11;
+          currentYear--;
+      }
+      renderCalendar(currentMonth, currentYear);
+  });
+
+  document.getElementById('nextMonth').addEventListener('click', function() {
+      currentMonth++;
+      if (currentMonth > 11) {
+          currentMonth = 0;
+          currentYear++;
+      }
+      renderCalendar(currentMonth, currentYear);
+  });
+
+  // Initialize calendar
+  renderCalendar(currentMonth, currentYear);
+});
+
+
+</script>
 </body>
 </html>
